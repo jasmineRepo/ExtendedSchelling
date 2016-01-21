@@ -1,6 +1,6 @@
 package it.unito.es.data;
 
-import it.zero11.microsim.data.db.PanelEntityKey;
+import microsim.data.db.PanelEntityKey;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

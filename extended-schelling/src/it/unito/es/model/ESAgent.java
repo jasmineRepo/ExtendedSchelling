@@ -1,12 +1,12 @@
 package it.unito.es.model;
 
 import it.unito.es.model.enums.Gender;
-import it.zero11.microsim.data.MultiKeyCoefficientMap;
-import it.zero11.microsim.data.db.PanelEntityKey;
-import it.zero11.microsim.engine.SimulationEngine;
-import it.zero11.microsim.event.EventListener;
-import it.zero11.microsim.space.turtle.DigitalTurtle;
-import it.zero11.microsim.space.turtle.Turtle;
+import microsim.data.MultiKeyCoefficientMap;
+import microsim.data.db.PanelEntityKey;
+import microsim.engine.SimulationEngine;
+import microsim.event.EventListener;
+import microsim.space.turtle.DigitalTurtle;
+import microsim.space.turtle.Turtle;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
