@@ -1,0 +1,20 @@
+<?xml version = "1.0" encoding="UTF-8"?>
+<project name="jas2-examples" basedir=".." default="pack">
+   
+	<property file="../microsim/resources/build.properties"/>
+		
+	<target name="pack" description="Pack the example project">
+    	<zip destfile="target/extended-schelling-${microsim-version}.zip" basedir=".">
+    		<include name="src/**" />
+    		<include name="input/**" />
+    		<include name="libs/**" />
+    		<include name="output/**" />
+    		<include name=".settings/**"/>
+    		<include name="pom.xml"/>
+    		<include name=".buildpath"/>
+    		<include name=".classpath"/>
+    		<include name=".project"/>
+    	</zip>  
+   	</target>
+
+</project>

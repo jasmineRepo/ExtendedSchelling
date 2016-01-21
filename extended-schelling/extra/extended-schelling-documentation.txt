@@ -1,0 +1,50 @@
+***************************
+*** Extended Schelling  ***
+*** model documentation ***
+***************************
+
+This version: September 2014
+
+Index:
+1. Aim
+2. General structure
+3. The Model
+4. The Agent
+5. The Collector
+6. The Observer
+7. The Start class
+8. References
+
+*** 1. Aim *** 
+Aim of the project is to show how the JAS 2 simulation platform can be used both for agent based (AB) modeling and for microsimulation (MS) modeling.
+
+Thomas Schelling's segregation model (Schelling, 1969, 1971) is one of the first and most well known AB models: the description that follows is based on Gallegati and Richiardi (2009). In the original model whites and blacks are (randomly) located over a grid, each individual occupying one cell. As a consequence, each individualhas at most 8 neighbours (Moore neighbourhood), located on adjacent cells. Preferences over residential patterns are represented as the maximum quota of racially different neighbours that an individual tolerates. For simplicity, we can assume that preferences are identical: a unique number defines the level of tolerance in the population. For example, if the tolerance level is 50% and an individual has only five neighbours, he would be satisfied if no more than two of his neighbours are racially different. If an individual is not satisfied by his current location, he tries to move to a different location where he is satisfied. The model generates high level of segregation, even for relatively high levels of tolerance.
+
+To correctly assess the importance of the model, it must be evaluated against the social and historical background of the time. Up to the end of the 1960s racial segregation was institutionalized in the United States. Racial laws required that public schools, public places and public transportation, like trains and buses, had separate facilities for whites and blacks. Residential segregation was also prescribed in some States, although it is now widely recognized that it mainly came about through organized, mostly private efforts to ghettoize blacks in the early twentieth century – particularly the years between the world wars (Farley, 1986; Muth, 1986). But if the social attitude was the strongest force in producing residential segregation, the Civil Right movement of the 1960s greatly contributed to a change of climate, with the white population exhibiting increasing levels of tolerance. Eventually, the movement gained such strength to achieve its main objective, the abolition of the racial laws: this was sealed in the Civil Rights Act of 1968 which, among many other things,outlawed a wide range of discriminatory conduct in housing markets. Hence, both the general public attitude and the law changed dramatically during the 1960s. As a consequence, many observers predicted a rapid decline in housing segregation. The decline, however, was almost imperceptible. The question then was why this did not happened. Schelling’s segregation model brought an answer, suggesting that small differences in tolerance level or initial location could trigger high level of segregation even without formal (i.e. legal) constraints, and even for decent levels of overall tolerance. 
+
+The mechanism that generates segregation is the following. Since individuals are initially located randomly on the grid, by chance there will be someone who is not satisfied. His decision to move creates two externalities: one in the location of origin and the other in the location of destination. For example, suppose a white individual decides to move because there are too many black people around. As he leaves, the ethnic composition of his neighbourhood is affected (there is one white less). This increases the possibility that another white individual, who was previously satisfied, becomes eager to move. A similar situation occurs in the area of destination. The arrival of a white individual affects the ethnic composition of the neighbourhood, possibly causing some black individual to become unsatisfied. Thus, a small non-homogeneity in the initial residential pattern triggers a chain effect that eventually leads to high levels of segregation. This mechanism is reinforced when preferences are not homogeneous in the population. 
+
+The Schelling model is an example of a simple theoretical (“toy”) AB model: the focus is on the externality mechanism, rather than on empirical veracity. In our implementation, we have modified it to include a basic feature of dynamic microsimulations: a population that evolves in time according to some specified processes. Accordingly, gender is specified for every individual in the population, and external birth probabilities (for women aged 15-60) and death probabilities (differentiated by gender) are loaded. These probabilities, stored in the MS Excel files p_birth.xls, p_death_m.xls and p_deat_f.xls, are age and year specific, with year running from 2002 (the initial year of the simulation) to 2060. They are taken from the Liam 2 demo models, and are therefore representative of the real birth and death probabilities in a continental European country. For the sake of illustration, the initial population can either be loaded from an external database (input.h2) or built synthetically “on the fly”. In the example, the loaded population (5,000 individuals) is not representative of any real population: in particular, age is uniformly distributed between 0 and 90 (hence the age distribution looks like a rectangle, rather than a pine tree as in most advanced countries, with a large and aging baby boom generation), and location is random. The loaded population is located on a 120*120 grid (14,400 cells): the grid is therefore only sparsely populated at the beginning of the simulation. The (realistic) demographic dynamics applied to the (unrealistic) initial population leads to rapid population growth and then stabilization around 11,000 individuals. To add a touch of realism, individuals aged 65 and over and women who have just given birth to a baby cannot move.
+
+
+Because unsatisfied individuals search for a new location in concentric manner, the city size grows 
+
+
+
+
+	
+
+
+
+*** 8. References ***
+
+Farley R. (1986), “The Residential Segregation of Blacks from Whites: Trends, Causes, and Consequences”, in: U.S. Commission on Civil Rights, Issues in Housing Discrimination, U.S. Commission on Civil Rights.
+
+Gallegati M., Richiardi M. (2009), “Agent-based Modelling in Economics and Complexity”. In: Meyer B. (ed.), Encyclopedia of Complexity and System Science, Springer, New York, pp. 200-224.
+
+Muth, R.F. (1986), “The Causes of Housing Segregation”, U.S. Commission on Civil 
+Rights, Issues in Housing Discrimination, U.S. Commission on Civil Rights.
+
+Schelling, T.C. (1969), “Models of Segregation”, American Economic Review, vol. 59, pp. 488-493
+
+Schelling, T.C. (1971), “Dynamic Models of Segregration”, Journal of Mathematical Sociology,vol. 1, pp. 143-186
