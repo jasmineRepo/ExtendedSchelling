@@ -10,3 +10,5 @@ Features:
 
     choose whether to create an initial population (ABM-like) or load it from a database (microsimulation-like)
     choose which simulation outcomes are stored in the database: all micro data, or macro statistic only
+
+For more information, see http://www.jas-mine.net/demo/extended-schelling.
