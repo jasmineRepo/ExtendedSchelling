@@ -16,7 +16,7 @@ Index:
 8. References
 
 *** 1. Aim *** 
-Aim of the project is to show how the JAS 2 simulation platform can be used both for agent based (AB) modeling and for microsimulation (MS) modeling.
+Aim of the project is to show how the JAS-mine simulation platform can be used both for agent based (AB) modeling and for microsimulation (MS) modeling.
 
 Thomas Schelling's segregation model (Schelling, 1969, 1971) is one of the first and most well known AB models: the description that follows is based on Gallegati and Richiardi (2009). In the original model whites and blacks are (randomly) located over a grid, each individual occupying one cell. As a consequence, each individualhas at most 8 neighbours (Moore neighbourhood), located on adjacent cells. Preferences over residential patterns are represented as the maximum quota of racially different neighbours that an individual tolerates. For simplicity, we can assume that preferences are identical: a unique number defines the level of tolerance in the population. For example, if the tolerance level is 50% and an individual has only five neighbours, he would be satisfied if no more than two of his neighbours are racially different. If an individual is not satisfied by his current location, he tries to move to a different location where he is satisfied. The model generates high level of segregation, even for relatively high levels of tolerance.
 

@@ -6,8 +6,6 @@ import microsim.data.db.PanelEntityKey;
 import microsim.engine.SimulationEngine;
 import microsim.event.EventListener;
 import microsim.space.turtle.DigitalTurtle;
-import microsim.space.turtle.Turtle;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;

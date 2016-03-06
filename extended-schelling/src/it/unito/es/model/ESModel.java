@@ -10,9 +10,6 @@ import microsim.engine.SimulationEngine;
 import microsim.event.EventGroup;
 import microsim.event.EventList;
 import microsim.event.EventListener;
-import microsim.event.SingleTargetEvent;
-import microsim.event.SystemEvent;
-import microsim.event.SystemEventType;
 import microsim.space.DenseObjectSpace;
 
 import java.util.ArrayList;

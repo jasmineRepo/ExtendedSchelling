@@ -47,15 +47,15 @@ public class ESObserver extends AbstractSimulationObserverManager implements Eve
 	    map = new LayeredSurfaceFrame(model.getxSize(), model.getySize(), 6);
 		map.setTitle("map");
 		map.addLayer(city);
-		GuiUtils.addWindow(map, 260, 0, model.getGrid().getXSize()*6+10, model.getGrid().getYSize()*6+30);
+		GuiUtils.addWindow(map, 260, 75, model.getGrid().getXSize()*6+10, model.getGrid().getYSize()*6+30);
 		
 		satisfactionPlotter = new TimeSeriesSimulationPlotter("% satisfied", "satisfaction");
 		satisfactionPlotter.addSeries("", collector.fMeanSatisfaction);
-		GuiUtils.addWindow(satisfactionPlotter, 1000, 25, 360, 360); 
+		GuiUtils.addWindow(satisfactionPlotter, 960, 50, 360, 360); 
 	
 		populationPlotter = new TimeSeriesSimulationPlotter("city size", "population size");
 		populationPlotter.addSeries("", (IIntSource) collector.fTracePopSize); 				
-		GuiUtils.addWindow(populationPlotter, 750, 25, 360, 360); 
+		GuiUtils.addWindow(populationPlotter, 600, 50, 360, 360); 
 		
 		log.debug("Observer objects created");
 	}
