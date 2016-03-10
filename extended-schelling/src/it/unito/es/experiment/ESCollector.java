@@ -10,6 +10,7 @@ import microsim.engine.SimulationEngine;
 import microsim.engine.SimulationManager;
 import microsim.event.EventGroup;
 import microsim.event.EventListener;
+import microsim.event.Order;
 import microsim.statistics.CrossSection;
 import microsim.statistics.IDoubleSource;
 import microsim.statistics.functions.MeanArrayFunction;
@@ -64,7 +65,7 @@ public class ESCollector extends AbstractSimulationCollectorManager implements E
 		eventGroup.addEvent(this, Processes.Update);
 		eventGroup.addEvent(this, Processes.ScheduleNextYear);
 		
-		getEngine().getEventList().schedule(eventGroup, 1);
+		getEngine().getEventList().scheduleOnce(eventGroup, ((ESModel) getManager()).getBaseYear()+1, Order.AFTER_ALL.getOrdering()-1);
 		// reduce persistency frequency
 //		getEngine().getEventList().schedule(eventGroup, (int) Math.log10(model.getAgentsList().size()));	
 	
@@ -91,7 +92,7 @@ public class ESCollector extends AbstractSimulationCollectorManager implements E
 			update();
 			break;
 		case ScheduleNextYear:
-			getEngine().getEventList().schedule(eventGroup, getEngine().getTime() + 1);
+			getEngine().getEventList().scheduleOnce(eventGroup, getEngine().getTime() + 1, 0);
 //			getEngine().getEventList().schedule(eventGroup, getEngine().getTime() + (int) Math.log10(((ESModel) getManager()).getAgentsList().size()));
 			break;
 		}

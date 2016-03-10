@@ -6,6 +6,7 @@ import microsim.engine.SimulationManager;
 import microsim.event.CommonEventType;
 import microsim.event.EventGroup;
 import microsim.event.EventListener;
+import microsim.event.Order;
 import microsim.gui.GuiUtils;
 import microsim.gui.colormap.FixedColorMap;
 import microsim.gui.plot.TimeSeriesSimulationPlotter;
@@ -67,7 +68,7 @@ public class ESObserver extends AbstractSimulationObserverManager implements Eve
 		eventGroup.addEvent(satisfactionPlotter, CommonEventType.Update);
 		eventGroup.addEvent(populationPlotter, CommonEventType.Update);
 		
-		getEngine().getEventList().schedule(eventGroup, 0, 1);
+		getEngine().getEventList().scheduleRepeat(eventGroup, ((ESModel) getManager()).getBaseYear(), Order.AFTER_ALL.getOrdering(), 1);
 							
 		log.debug("Observer schedule created");
 	}

@@ -10,6 +10,7 @@ import microsim.engine.SimulationEngine;
 import microsim.event.EventGroup;
 import microsim.event.EventList;
 import microsim.event.EventListener;
+import microsim.event.Order;
 import microsim.space.DenseObjectSpace;
 
 import java.util.ArrayList;
@@ -139,7 +140,7 @@ public class ESModel extends AbstractSimulationManager implements EventListener 
 		EventGroup tickEvents = new EventGroup();
 		//tickEvents.addEvent(agentsList.get(SimulationEngine.getRnd().nextInt(agentsList.size())), ESAgent.Processes.Step);
 		tickEvents.addCollectionEvent(agentsList, ESAgent.Processes.Step, false);
-		eventList.schedule(tickEvents, 0, 1);
+		eventList.scheduleRepeat(tickEvents, baseYear, 0, 1);
 			
 		// every year
 		yearlyEvents = new EventGroup();
@@ -148,7 +149,7 @@ public class ESModel extends AbstractSimulationManager implements EventListener 
 		yearlyEvents.addCollectionEvent(agentsList, ESAgent.Processes.GiveBirth, false);
 		yearlyEvents.addCollectionEvent(agentsList, ESAgent.Processes.Death, false);		
 		yearlyEvents.addEvent(this, ESModel.Processes.ScheduleNextYear);
-		eventList.schedule(yearlyEvents, 1 );		
+		eventList.scheduleRepeat(yearlyEvents, baseYear+1, 0, 1);		
 //		eventList.schedule(yearlyEvents, (int) Math.log10(agentsList.size()) );
 	
 		log.debug("Model schedule created");
@@ -162,7 +163,7 @@ public class ESModel extends AbstractSimulationManager implements EventListener 
 				getEngine().end();
 			break;
 		case ScheduleNextYear:
-			getEngine().getEventList().schedule(yearlyEvents, getEngine().getTime() + 1);
+			getEngine().getEventList().scheduleOnce(yearlyEvents, getEngine().getTime() + 1, Order.AFTER_ALL.getOrdering());
 //			getEngine().getEventList().schedule(yearlyEvents, getEngine().getTime() + (int) Math.log10(agentsList.size()));
 			break;
 		}
