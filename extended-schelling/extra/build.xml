@@ -1,4 +1,5 @@
 <?xml version = "1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
 <project name="jas2-examples" basedir=".." default="pack">
    
 	<property file="../microsim/resources/build.properties"/>
