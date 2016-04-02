@@ -3,7 +3,7 @@ package it.unito.es.experiment;
 import it.unito.es.data.Statistics;
 import it.unito.es.model.ESAgent;
 import it.unito.es.model.ESModel;
-import microsim.annotation.ModelParameter;
+import microsim.annotation.GUIparameter;
 import microsim.data.db.DatabaseUtils;
 import microsim.engine.AbstractSimulationCollectorManager;
 import microsim.engine.SimulationEngine;
@@ -23,10 +23,10 @@ public class ESCollector extends AbstractSimulationCollectorManager implements E
 
 	private final static Logger log = Logger.getLogger(ESCollector.class);
 
-	@ModelParameter(description="persists all the population in the database")
+	@GUIparameter(description="persists all the population in the database")
 	private Boolean saveMicrodata = false;
 	
-	@ModelParameter(description="persists only aggregate statistics in the database")
+	@GUIparameter(description="persists only aggregate statistics in the database")
 	private Boolean saveMacrodata = true;
 	
 	public CrossSection.Integer csSatisfaction;

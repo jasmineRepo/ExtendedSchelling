@@ -1,7 +1,7 @@
 package it.unito.es.model;
 
 import it.unito.es.model.enums.Gender;
-import microsim.annotation.ModelParameter;
+import microsim.annotation.GUIparameter;
 import microsim.data.MultiKeyCoefficientMap;
 import microsim.data.db.DatabaseUtils;
 import microsim.data.excel.ExcelAssistant;
@@ -32,34 +32,34 @@ public class ESModel extends AbstractSimulationManager implements EventListener 
 
 	private List<ESAgent> agentsList;
 		
-	@ModelParameter(description="Base year (valid range 2002-2059)")
+	@GUIparameter(description="Base year (valid range 2002-2059)")
 	private Integer baseYear = 2002;
 	
-	@ModelParameter(description="Final year (valid range 2002-2060)")
+	@GUIparameter(description="Final year (valid range 2002-2060)")
 	private Integer finalYear = 2060;
 	
-	@ModelParameter
+	@GUIparameter
 	private Integer xSize = 50;
 	
-	@ModelParameter
+	@GUIparameter
 	private Integer ySize = 50;
 	
-	@ModelParameter
+	@GUIparameter
 	private Double popDensity = .8;
 	
-	@ModelParameter
+	@GUIparameter
 	private Double color0Share = .5;
 	
-	@ModelParameter
+	@GUIparameter
 	private Double minTolerance = 0.0;
 	
-	@ModelParameter
+	@GUIparameter
 	private Double maxTolerance = 1.0;
 	
-	@ModelParameter
+	@GUIparameter
 	private Integer maxAgeMovers = 65;
 		
-	@ModelParameter(description="Loaded population is 5,000 individuals")
+	@GUIparameter(description="Loaded population is 5,000 individuals")
 	private Boolean loadPopulation = false;
 	
 	private int year; 
