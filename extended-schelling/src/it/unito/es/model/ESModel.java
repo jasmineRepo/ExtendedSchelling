@@ -8,8 +8,8 @@ import microsim.data.excel.ExcelAssistant;
 import microsim.engine.AbstractSimulationManager;
 import microsim.engine.SimulationEngine;
 import microsim.event.EventGroup;
-import microsim.event.EventList;
 import microsim.event.EventListener;
+import microsim.event.EventQueue;
 import microsim.event.Order;
 import microsim.space.DenseObjectSpace;
 
@@ -134,7 +134,7 @@ public class ESModel extends AbstractSimulationManager implements EventListener 
 
 	
 	public void buildSchedule() {
-		EventList eventList = getEngine().getEventList();
+		EventQueue eventList = getEngine().getEventQueue();
 	
 		// every tick
 		EventGroup tickEvents = new EventGroup();
@@ -163,8 +163,8 @@ public class ESModel extends AbstractSimulationManager implements EventListener 
 				getEngine().end();
 			break;
 		case ScheduleNextYear:
-			getEngine().getEventList().scheduleOnce(yearlyEvents, getEngine().getTime() + 1, Order.AFTER_ALL.getOrdering());
-//			getEngine().getEventList().schedule(yearlyEvents, getEngine().getTime() + (int) Math.log10(agentsList.size()));
+			getEngine().getEventQueue().scheduleOnce(yearlyEvents, getEngine().getTime() + 1, Order.AFTER_ALL.getOrdering());
+//			getEngine().getEventQueue().schedule(yearlyEvents, getEngine().getTime() + (int) Math.log10(agentsList.size()));
 			break;
 		}
 	}

@@ -68,7 +68,7 @@ public class ESObserver extends AbstractSimulationObserverManager implements Eve
 		eventGroup.addEvent(satisfactionPlotter, CommonEventType.Update);
 		eventGroup.addEvent(populationPlotter, CommonEventType.Update);
 		
-		getEngine().getEventList().scheduleRepeat(eventGroup, ((ESModel) getManager()).getBaseYear(), Order.AFTER_ALL.getOrdering(), 1);
+		getEngine().getEventQueue().scheduleRepeat(eventGroup, ((ESModel) getManager()).getBaseYear(), Order.AFTER_ALL.getOrdering(), 1);
 							
 		log.debug("Observer schedule created");
 	}
